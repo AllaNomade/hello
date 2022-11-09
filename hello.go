@@ -22,13 +22,14 @@ func main() {
 
 	fmt.Println("o comando escolhido foi", comando)
 
-	if comando == 1 {
+	switch comando {
+	case 1:
 		fmt.Println("Monitorando...")
-	} else if comando == 2 {
+	case 2:
 		fmt.Println("Logs atuais")
-	} else if comando == 0 {
+	case 0:
 		fmt.Println("logoff efetuado com sucesso")
-	} else {
+	default:
 		fmt.Println("Este comando não existe")
 	}
 }
