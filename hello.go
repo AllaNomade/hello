@@ -3,6 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("olá mundo, Alan, novo dev Golang!")
-	fmt.Println("segundo console.log")
+	var nome string = "Alan"
+	var idade int = 24
+	var versao float32 = 1.1
+
+	fmt.Println("olá senhor", nome, "sua idade é:", idade)
+	fmt.Println("versão atual:", versao)
+
 }
