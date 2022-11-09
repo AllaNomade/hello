@@ -2,25 +2,13 @@ package main
 
 import (
 	"fmt"
-	"reflect"
+	"os"
 )
 
 func main() {
-	nome := "Alan"
-	var versao float32 = 1.1
-	fmt.Println("olá senhor", nome, "sua idade é:")
-	fmt.Println("versão atual:", versao)
-
-	fmt.Println("O tipo da variavel nome é", reflect.TypeOf(nome))
-
-	fmt.Println("1- Iniciar Monitoramento dos Sites")
-	fmt.Println("2- Exibir Logs")
-	fmt.Println("0- Sair do programa")
-
-	var comando int
-	fmt.Scan(&comando)
-
-	fmt.Println("o comando escolhido foi", comando)
+	exibeIntrodução()
+	exibeMenu()
+	comando := leComando()
 
 	switch comando {
 	case 1:
@@ -29,7 +17,34 @@ func main() {
 		fmt.Println("Logs atuais")
 	case 0:
 		fmt.Println("logoff efetuado com sucesso")
+		os.Exit(0)
 	default:
 		fmt.Println("Este comando não existe")
+		os.Exit(-1)
 	}
+}
+
+func exibeIntrodução() {
+	nome := "Alan"
+	var versao float32 = 1.1
+	fmt.Println("Olá, senhor", nome)
+	fmt.Println("Versão atual:", versao)
+}
+
+func exibeMenu() {
+	fmt.Println("1- Iniciar Monitoramento dos Sites")
+	fmt.Println("2- Exibir Logs")
+	fmt.Println("0- Sair do programa")
+}
+
+func leComando() int {
+	var comandoLido int
+	fmt.Scan(&comandoLido)
+	fmt.Println("o comando escolhido foi", comandoLido)
+
+	return comandoLido
+}
+
+func saiDoPrograma() {
+
 }
