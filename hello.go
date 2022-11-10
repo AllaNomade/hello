@@ -2,17 +2,22 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+
+	//"net/http"
 	"os"
 )
 
 func main() {
+
 	exibeIntrodução()
 	exibeMenu()
+
 	comando := leComando()
 
 	switch comando {
 	case 1:
-		fmt.Println("Monitorando...")
+		iniciarMonitoramento()
 	case 2:
 		fmt.Println("Logs atuais")
 	case 0:
@@ -31,6 +36,13 @@ func exibeIntrodução() {
 	fmt.Println("Versão atual:", versao)
 }
 
+func exibeRedbull() (string, int) {
+	equipe := "Redbull"
+	pilotos := 1
+
+	return equipe, pilotos
+}
+
 func exibeMenu() {
 	fmt.Println("1- Iniciar Monitoramento dos Sites")
 	fmt.Println("2- Exibir Logs")
@@ -45,6 +57,10 @@ func leComando() int {
 	return comandoLido
 }
 
-func saiDoPrograma() {
+func iniciarMonitoramento() {
+	fmt.Println("Monitorando...")
+	site := "https://app.awari.com.br/"
+	resp, _ := http.Get(site)
+	fmt.Println(resp)
 
 }
