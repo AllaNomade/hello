@@ -3,12 +3,15 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"reflect"
 
 	//"net/http"
 	"os"
 )
 
 func main() {
+
+	exibeNomes()
 
 	exibeIntrodução()
 
@@ -40,13 +43,6 @@ func exibeIntrodução() {
 	fmt.Println("Versão atual:", versao)
 }
 
-func exibeRedbull() (string, int) {
-	equipe := "Redbull"
-	pilotos := 1
-
-	return equipe, pilotos
-}
-
 func exibeMenu() {
 	fmt.Println("1- Iniciar Monitoramento dos Sites")
 	fmt.Println("2- Exibir Logs")
@@ -63,6 +59,13 @@ func leComando() int {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
+
+	var sites [4]string
+	sites[0] = "https://random-status-code.herokuapp.com/"
+	sites[1] = "www.alura.com.br"
+	sites[2] = "www.youtube.com"
+	fmt.Println(sites[3])
+
 	site := "https://random-status-code.herokuapp.com/"
 	resp, _ := http.Get(site)
 
@@ -71,5 +74,16 @@ func iniciarMonitoramento() {
 	} else {
 		fmt.Println("O site:", site, "está fora do ar, STATUS:", resp.StatusCode)
 	}
+}
 
+func exibeNomes() {
+	nomes := []string{"alan", "caro", "samanta", "vasco"}
+	fmt.Println(nomes)
+
+	fmt.Println(reflect.TypeOf(nomes))
+	fmt.Println("slice tem a capacidade de ", len(nomes))
+	nomes = append(nomes, "Aparecido")
+
+	fmt.Println("E AGORA A CAPACIDADE DE:", len(nomes))
+	fmt.Println("NOVA CAPACIDADE", cap(nomes))
 }
