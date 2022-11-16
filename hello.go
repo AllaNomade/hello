@@ -3,15 +3,12 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"reflect"
 
 	//"net/http"
 	"os"
 )
 
 func main() {
-
-	exibeNomes()
 
 	exibeIntrodução()
 
@@ -26,6 +23,10 @@ func main() {
 			iniciarMonitoramento()
 		case 2:
 			fmt.Println("Logs atuais")
+		case 8:
+			fmt.Println("Conteúdo de teste iniciado!........")
+		case 9:
+			fmt.Println("conteudo em teste1.....")
 		case 0:
 			fmt.Println("logoff efetuado com sucesso")
 			os.Exit(0)
@@ -46,6 +47,8 @@ func exibeIntrodução() {
 func exibeMenu() {
 	fmt.Println("1- Iniciar Monitoramento dos Sites")
 	fmt.Println("2- Exibir Logs")
+	fmt.Println("8- iniciar teste")
+	fmt.Println("9- mostrar conteudo de teste")
 	fmt.Println("0- Sair do programa")
 }
 
@@ -60,11 +63,12 @@ func leComando() int {
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
 
-	var sites [4]string
-	sites[0] = "https://random-status-code.herokuapp.com/"
-	sites[1] = "www.alura.com.br"
-	sites[2] = "www.youtube.com"
-	fmt.Println(sites[3])
+	sites := []string{"https://random-status-code.herokuapp.com/", "www.alura.com.br", "https://www.youtube.com/"}
+	//fmt.Println(sites)
+
+	for i, site := range sites {
+		fmt.Println("Passando na posição", i, "e está", site)
+	}
 
 	site := "https://random-status-code.herokuapp.com/"
 	resp, _ := http.Get(site)
@@ -74,16 +78,4 @@ func iniciarMonitoramento() {
 	} else {
 		fmt.Println("O site:", site, "está fora do ar, STATUS:", resp.StatusCode)
 	}
-}
-
-func exibeNomes() {
-	nomes := []string{"alan", "caro", "samanta", "vasco"}
-	fmt.Println(nomes)
-
-	fmt.Println(reflect.TypeOf(nomes))
-	fmt.Println("slice tem a capacidade de ", len(nomes))
-	nomes = append(nomes, "Aparecido")
-
-	fmt.Println("E AGORA A CAPACIDADE DE:", len(nomes))
-	fmt.Println("NOVA CAPACIDADE", cap(nomes))
 }
