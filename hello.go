@@ -3,16 +3,13 @@ package main
 import (
 	"fmt"
 	"net/http"
-
-	//"reflect"
-
-	//"net/http"
 	"os"
+	"reflect"
 )
 
 func main() {
 
-	//exibeNomes()
+	exibeNomes()
 
 	exibeIntrodução()
 
@@ -84,14 +81,14 @@ func iniciarMonitoramento() {
 	}
 }
 
-// func exibeNomes() {
-// 	nomes := []string{"alan", "caro", "samanta", "vasco"}
-// 	fmt.Println(nomes)
+func exibeNomes() {
+	nomes := []string{"alan", "caro", "samanta", "vasco"}
+	fmt.Println(nomes)
 
-// 	fmt.Println(reflect.TypeOf(nomes))
-// 	fmt.Println("slice tem a capacidade de ", len(nomes))
-// 	nomes = append(nomes, "Aparecido")
+	fmt.Println(reflect.TypeOf(nomes))
+	fmt.Println("slice tem a capacidade de ", len(nomes))
+	nomes = append(nomes, "Aparecido")
 
-// 	fmt.Println("E AGORA A CAPACIDADE DE:", len(nomes))
-// 	fmt.Println("NOVA CAPACIDADE", cap(nomes))
-// }
+	fmt.Println("E AGORA A CAPACIDADE DE:", len(nomes))
+	fmt.Println("NOVA CAPACIDADE", cap(nomes))
+}
