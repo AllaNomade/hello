@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"reflect"
+
+	//"reflect"
 
 	//"net/http"
 	"os"
@@ -11,7 +12,7 @@ import (
 
 func main() {
 
-	exibeNomes()
+	//exibeNomes()
 
 	exibeIntrodução()
 
@@ -60,11 +61,16 @@ func leComando() int {
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
 
-	var sites [4]string
-	sites[0] = "https://random-status-code.herokuapp.com/"
-	sites[1] = "www.alura.com.br"
-	sites[2] = "www.youtube.com"
-	fmt.Println(sites[3])
+	sites := []string{"https://random-status-code.herokuapp.com/", "www.alura.com.br", "www.youtube.com"}
+	//fmt.Println(sites)
+
+	// for i := 0; i < len(sites); i++ {
+	// 	fmt.Println(sites[i])
+	// }
+
+	for i, sites := range sites {
+		fmt.Println(i, "=>", sites)
+	}
 
 	site := "https://random-status-code.herokuapp.com/"
 	resp, _ := http.Get(site)
@@ -76,14 +82,14 @@ func iniciarMonitoramento() {
 	}
 }
 
-func exibeNomes() {
-	nomes := []string{"alan", "caro", "samanta", "vasco"}
-	fmt.Println(nomes)
+// func exibeNomes() {
+// 	nomes := []string{"alan", "caro", "samanta", "vasco"}
+// 	fmt.Println(nomes)
 
-	fmt.Println(reflect.TypeOf(nomes))
-	fmt.Println("slice tem a capacidade de ", len(nomes))
-	nomes = append(nomes, "Aparecido")
+// 	fmt.Println(reflect.TypeOf(nomes))
+// 	fmt.Println("slice tem a capacidade de ", len(nomes))
+// 	nomes = append(nomes, "Aparecido")
 
-	fmt.Println("E AGORA A CAPACIDADE DE:", len(nomes))
-	fmt.Println("NOVA CAPACIDADE", cap(nomes))
-}
+// 	fmt.Println("E AGORA A CAPACIDADE DE:", len(nomes))
+// 	fmt.Println("NOVA CAPACIDADE", cap(nomes))
+// }
