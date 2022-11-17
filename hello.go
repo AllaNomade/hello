@@ -64,10 +64,12 @@ func iniciarMonitoramento() {
 	sites := []string{"https://random-status-code.herokuapp.com/", "www.alura.com.br", "www.youtube.com"}
 	//fmt.Println(sites)
 
+	//for tradicional
 	// for i := 0; i < len(sites); i++ {
 	// 	fmt.Println(sites[i])
 	// }
 
+	//for range
 	for i, sites := range sites {
 		fmt.Println(i, "=>", sites)
 	}
