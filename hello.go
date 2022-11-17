@@ -3,10 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"reflect"
-
-	//"net/http"
 	"os"
+	"reflect"
 )
 
 func main() {
@@ -60,11 +58,18 @@ func leComando() int {
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
 
-	var sites [4]string
-	sites[0] = "https://random-status-code.herokuapp.com/"
-	sites[1] = "www.alura.com.br"
-	sites[2] = "www.youtube.com"
-	fmt.Println(sites[3])
+	sites := []string{"https://random-status-code.herokuapp.com/", "www.alura.com.br", "www.youtube.com"}
+	//fmt.Println(sites)
+
+	//for tradicional
+	// for i := 0; i < len(sites); i++ {
+	// 	fmt.Println(sites[i])
+	// }
+
+	//for range
+	for i, sites := range sites {
+		fmt.Println(i, "=>", sites)
+	}
 
 	site := "https://random-status-code.herokuapp.com/"
 	resp, _ := http.Get(site)
