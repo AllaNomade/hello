@@ -3,14 +3,13 @@ package main
 import (
 	"fmt"
 	"net/http"
-
-	//"net/http"
 	"os"
 )
 
 func main() {
 
 	exibeIntrodução()
+	exibeNomes()
 
 	for {
 
@@ -82,4 +81,12 @@ func iniciarMonitoramento() {
 	} else {
 		fmt.Println("O site:", site, "está fora do ar, STATUS:", resp.StatusCode)
 	}
+}
+
+func exibeNomes() {
+	nomes := []string{"alan", "araujo", "paiva"}
+	nomes = append(nomes, "aparecido")
+	fmt.Println(len(nomes))
+	fmt.Println(cap(nomes))
+
 }
