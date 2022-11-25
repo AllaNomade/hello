@@ -7,8 +7,8 @@ import (
 	"time"
 )
 
-const monitoramentos = 1
-const delay = 5
+const monitoramentos = 10
+const delay = 60
 
 func main() {
 
@@ -67,7 +67,7 @@ func iniciarMonitoramento() {
 			fmt.Println("Testando site", i, ":", site)
 			testaSite(site)
 		}
-		time.Sleep(delay * time.Minute)
+		time.Sleep(delay * time.Second)
 		fmt.Println("")
 	}
 	fmt.Println("")
